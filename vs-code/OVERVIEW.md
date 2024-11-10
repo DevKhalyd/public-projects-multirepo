@@ -2,13 +2,24 @@
 
 A folder that contains information about vs code and how to configure it to code faster.
 
-## Tricks
-
-TODO Create a table after all commands go it
-
-Option + Key Up or Key Down = Line Movement
-
 ## Shortcuts
+
+| Action                  | Shortcut                   |
+|-------------------------|----------------------------|
+| Line Movement           | Option + Key Up / Key Down |
+| Remove Tab Space        | Shift + Tab                |
+| Comment Line            | Cmd + Shift + 7            |
+| Block Comment (Selection) | Option + Shift + A        |
+| Move Between Tabs       | Ctrl + Tab                 |
+| Code Block              | Option + }                 |
+| Backslash (`\`)         | Option + ?                 |
+| Operator "or"           | `||`                       |
+
+## Utils
+
+**Snippets creation:**
+
+https://code.visualstudio.com/docs/editor/userdefinedsnippets
 
 ## Extensions
 
