@@ -1,0 +1,15 @@
+{
+  "name": "xss",
+  "version": "1.0.0",
+  "description": "Code injection attacks using JavaScript can exploit cross-site scripting flaws. The application sends unverifiable data to browsers, and hackers seek the opportunity to insert malicious files on trustworthy web pages and exploit websites to send visitors to harmful programs. Cross-site scripting attacks are most likely to occur in web programs that incorporate unscreened user input into the outputs.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
