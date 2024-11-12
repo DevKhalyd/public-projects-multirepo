@@ -15,7 +15,7 @@ $ ./main
 
 ## TODO
 
-- Continue on: https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html 
+- Continue on: https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html
 
 ## Future
 

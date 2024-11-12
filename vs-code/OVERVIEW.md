@@ -9,11 +9,11 @@ A folder that contains information about vs code and how to configure it to code
 | Line Movement           | Option + Key Up / Key Down |
 | Remove Tab Space        | Shift + Tab                |
 | Comment Line            | Cmd + Shift + 7            |
-| Block Comment (Selection) | Option + Shift + A        |
+| Block Comment (Selection) | Option + Shift + A       |
 | Move Between Tabs       | Ctrl + Tab                 |
 | Code Block              | Option + }                 |
 | Backslash (`\`)         | Option + ?                 |
-| Operator "or"           | `||`                       |
+| View: Toggle Terminal   | Option + \|                 |
 
 ## Utils
 
