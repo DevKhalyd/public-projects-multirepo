@@ -4,9 +4,18 @@ We’ll implement a classic beginner programming problem: a guessing game. Here�
 
 # Commands
 
-**cargo run**
+
+**cargo build:** Build the project from scratch
+**cargo run:** Compile and run the binary
+**cargo udpate:** Update all the dependencies
+
+
+
 
 # Reference
 
 https://doc.rust-lang.org/book/ch02-00-guessing-game-tutorial.html
 
+# Terminology
+
+**Crate:** It is a collection of Rust source code files. The project we’ve been building is a binary crate, which is an executable. The rand crate is a library crate, which contains code that is intended to be used in other programs and can’t be executed on its own.
