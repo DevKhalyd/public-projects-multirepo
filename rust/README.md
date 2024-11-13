@@ -3,9 +3,12 @@
 ```bash
 # Compile
 $ rustc ${name-file}.rs
-# Run
+# Run 
 $ ./main
+
+# Note: Use cargo instead
 ```
+
 
 **cargo fmt:** Running this command reformats all the Rust code in the current crate. This should only change the code style, not the code semantics.
 
@@ -16,11 +19,7 @@ $ ./main
 ## TODO
 
 - Continue on: https://doc.rust-lang.org/book/ch03-00-common-programming-concepts.html
-
-## Future
-
-- Install the vs code extension 
-
+ 
 
 ## Rust Drive
 
