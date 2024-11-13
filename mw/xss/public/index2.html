@@ -1,0 +1,32 @@
+<!-- 
+Imagine a web application that takes a query parameter from the URL and displays
+it on the page without proper sanitization. For example, a search functionality
+that displays the search term back to the user.
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Page</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <p>You searched for: <span id="search-term"></span></p>
+
+    <script>
+        // Vulnerable code: directly inserting user input into the DOM
+        const urlParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlParams.get('q');
+        document.getElementById('search-term').innerHTML = searchTerm;
+    </script>
+</body>
+</html>
+
+<!-- 
+Bad URL
+http://example.com/search?q=<script>alert('XSS')</script>
+
+1. Record a video of how should work
+-->
+

