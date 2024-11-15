@@ -33,3 +33,7 @@ Regularly update and patch software and libraries.
 
 Use HTTPS to encrypt data in transit.
 
+# Video example
+
+![Video](./assets/xss-example.mov)
+
