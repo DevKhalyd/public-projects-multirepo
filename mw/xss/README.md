@@ -35,5 +35,5 @@ Use HTTPS to encrypt data in transit.
 
 # Video example
 
-![Video](./assets/xss-example.mov)
+See: https://github.com/DevKhalyd/public-projects-multirepo/issues/1
 
