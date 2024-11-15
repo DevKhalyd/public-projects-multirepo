@@ -35,5 +35,5 @@ Use HTTPS to encrypt data in transit.
 
 # Video example
 
-![Video](./assets/xss-example.mov)
+![Video](./assets/xss-example.mp4)
 
