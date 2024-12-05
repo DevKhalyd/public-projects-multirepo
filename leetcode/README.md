@@ -65,3 +65,5 @@ Review Mistakes: Understanding errors boosts problem-solving efficiency.
 Note: Let's start with those tips and see how it goes. I will update this section as I learn more about the process.
 
 ## Where to start?
+
+https://leetcode.com/explore/featured/card/leetcodes-interview-crash-course-data-structures-and-algorithms/ 
