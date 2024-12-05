@@ -96,6 +96,12 @@
 - https://roadmap.sh/ios
 - https://www.hackingwithswift.com/
 
+# Calendar
+
+- 10m of Swift Language
+- 20m of iOS Development theory
+- 30m of iOS Development
+
 # TODO
 
 - Create a folder with all the important features/switf-tricks and other to create mini apps just to practice
