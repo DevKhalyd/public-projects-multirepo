@@ -102,7 +102,9 @@
 
 - 10m of Swift Language
 - 20m of iOS Development theory
-- 30m of iOS Development
+- 30m of iOS Development (Project)
+- 10m of Architecture
+- 10m of Patterns
 
 # TODO
 
