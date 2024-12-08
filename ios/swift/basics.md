@@ -129,8 +129,114 @@ let octalInteger = 0o21           // 17 in octal notation
 let hexadecimalInteger = 0x11     // 17 in hexadecimal notation
 ```
 
-Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Type-Aliases
+# Type Aliases
+
+Type aliases define an alternative name for an existing type. You define type aliases with the typealias keyword.
+
+Type aliases are useful when you want to refer to an existing type by a name that is contextually more appropriate, such as when working with data of a specific size from an external source:
+
+```swift
+typealias AudioSample = UInt16
+var maxAmplitudeFound = AudioSample.min
+```
+
+# Tuples
+
+Tuples group multiple values into a single compound value. The values within a tuple can be of any type and don’t have to be of the same type as each other.
+
+```swift
+let http404Error = (404, "Not Found")
+// http404Error is of type (Int, String), and equals (404, "Not Found")
+
+let (statusCode, statusMessage) = http404Error
+print("The status code is \(statusCode)")
+// Prints "The status code is 404"
+print("The status message is \(statusMessage)")
+// Prints "The status message is Not Found"
+```
 
 
+# Optionals
+
+You use optionals in situations where a value may be absent. An optional represents two possibilities: Either there is a value, and you can unwrap the optional to access that value, or there isn’t a value at all.
+
+```swift
+let possibleNumber = "123"
+let convertedNumber = Int(possibleNumber)
+// convertedNumber is inferred to be of type "Int?", or "optional Int"
+```
+
+# Nil
+
+You set an optional variable to a valueless state by assigning it the special value nil:
+
+```swift
+var serverResponseCode: Int? = 404
+// serverResponseCode contains an actual Int value of 404
+serverResponseCode = nil
+// serverResponseCode now contains no value
+```
+
+# Optional Binding
+
+You use optional binding to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable. Optional binding can be used with if, guard, and while statements to check for a value inside an optional, and to extract that value into a constant or variable, as part of a single action.
 
 
+```swift
+if let actualNumber = Int(possibleNumber) {
+    print("The string \"\(possibleNumber)\" has an integer value of \(actualNumber)")
+} else {
+    print("The string \"\(possibleNumber)\" couldn't be converted to an integer")
+}
+```
+
+If you don’t need to refer to the original, optional constant or variable after accessing the value it contains, you can use the same name for the new constant or variable:
+
+```swift
+let myNumber = Int(possibleNumber)
+// Here, myNumber is an optional integer
+if let myNumber = myNumber {
+    // Here, myNumber is a non-optional integer
+    print("My number is \(myNumber)")
+}
+// Prints "My number is 123"
+```
+
+Because this kind of code is so common, you can use a shorter spelling to unwrap an optional value: Write just the name of the constant or variable that you’re unwrapping. The new, unwrapped constant or variable implicitly uses the same name as the optional value.
+
+```swift
+if let myNumber {
+    print("My number is \(myNumber)")
+}
+// Prints "My number is 123"
+```
+
+# Providing a Fallback Value
+
+Another way to handle a missing value is to supply a default value using the nil-coalescing operator (??). If the optional on the left of the ?? isn’t nil, that value is unwrapped and used. Otherwise, the value on the right of ?? is used. For example, the code below greets someone by name if one is specified, and uses a generic greeting when the name is nil.
+
+```swift
+let name: String? = nil
+let greeting = "Hello, " + (name ?? "friend") + "!"
+print(greeting)
+// Prints "Hello, friend!"
+```
+
+# Force Unwrapping
+
+When nil represents an unrecoverable failure, such as a programmer error or corrupted state, you can access the underlying value by adding an exclamation mark (!) to the end of the optional’s name. This is known as force unwrapping the optional’s value. When you force unwrap a non-nil value, the result is its unwrapped value. Force unwrapping a nil value triggers a runtime error.
+
+```swift
+let possibleNumber = "123"
+let convertedNumber = Int(possibleNumber)
+
+
+let number = convertedNumber!
+
+
+guard let number = convertedNumber else {
+    fatalError("The number was invalid")
+}
+```
+
+Both versions of the code above depend on convertedNumber always containing a value. Writing that requirement as part of the code, using either of the approaches above, lets your code check that the requirement is true at runtime.
