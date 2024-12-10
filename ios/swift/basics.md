@@ -240,3 +240,19 @@ guard let number = convertedNumber else {
 ```
 
 Both versions of the code above depend on convertedNumber always containing a value. Writing that requirement as part of the code, using either of the approaches above, lets your code check that the requirement is true at runtime.
+
+# Implicitly Unwrapped Optionals
+
+Sometimes it’s clear from a program’s structure that an optional will always have a value, after that value is first set. In these cases, it’s useful to remove the need to check and unwrap the optional’s value every time it’s accessed, because it can be safely assumed to have a value all of the time.
+
+These kinds of optionals are defined as implicitly unwrapped optionals. You write an implicitly unwrapped optional by placing an exclamation point (String!) rather than a question mark (String?) after the type that you want to make optional. Rather than placing an exclamation point after the optional’s name when you use it, you place an exclamation point after the optional’s type when you declare it.
+
+```swift
+let possibleString: String? = "An optional string."
+let forcedString: String = possibleString! // requires an exclamation point
+
+let assumedString: String! = "An implicitly unwrapped optional string."
+let implicitString: String = assumedString // no need for an exclamation point
+```
+
+Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Error-Handling
