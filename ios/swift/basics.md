@@ -255,4 +255,78 @@ let assumedString: String! = "An implicitly unwrapped optional string."
 let implicitString: String = assumedString // no need for an exclamation point
 ```
 
-Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/#Error-Handling
+# Error Handling
+
+You use error handling to respond to error conditions your program may encounter during execution. When a function encounters an error, it can throw an error to the code that called it.
+
+```swift
+func canThrowAnError() throws {
+    // this function may or may not throw an error
+}
+
+do {
+    try canThrowAnError()
+    // no error was thrown
+} catch {
+    // an error was thrown
+}
+```
+
+More ways:
+
+```swift
+func makeASandwich() throws {
+    // ...
+}
+
+do {
+    try makeASandwich()
+    eatASandwich()
+} catch SandwichError.outOfCleanDishes {
+    washDishes()
+} catch SandwichError.missingIngredients(let ingredients) {
+    buyGroceries(ingredients)
+}
+```
+
+# Assertions and Preconditions
+
+You use assertions and preconditions to express the assumptions you make and the expectations you have while coding, so you can include them as part of your code. Assertions help you find mistakes and incorrect assumptions during development, and preconditions help you detect issues in production.
+
+Using assertions and preconditions isn’t a substitute for designing your code in such a way that invalid conditions are unlikely to arise. However, using them to enforce valid data and state causes your app to terminate more predictably if an invalid state occurs, and helps make the problem easier to debug. When assumptions aren’t checked, you might not notice this kind problem until much later when code elsewhere starts failing visibly, and after user data has been silently corrupted. Stopping execution as soon as an invalid state is detected also helps limit the damage caused by that invalid state.
+
+The difference between assertions and preconditions is in when they’re checked: Assertions are checked only in debug builds, but preconditions are checked in both debug and production builds. In production builds, the condition inside an assertion isn’t evaluated. This means you can use as many assertions as you want during your development process, without impacting performance in production.
+
+You can omit the assertion message — for example, when it would just repeat the condition as prose.
+
+```swift
+let age = -3
+assert(age >= 0, "A person's age can't be less than zero.")
+// This assertion fails because -3 isn't >= 0.
+
+If the code already checks the condition, you use the assertionFailure(_:file:line:) function to indicate that an assertion has failed. For example:
+
+if age > 10 {
+    print("You can ride the roller-coaster or the ferris wheel.")
+} else if age >= 0 {
+    print("You can ride the ferris wheel.")
+} else {
+    assertionFailure("A person's age can't be less than zero.")
+}
+```
+
+# Enforcing Preconditions
+
+Use a precondition whenever a condition has the potential to be false, but must definitely be true for your code to continue execution. For example, use a precondition to check that a subscript isn’t out of bounds, or to check that a function has been passed a valid value.
+
+You write a precondition by calling the precondition(_:_:file:line:) function. You pass this function an expression that evaluates to true or false and a message to display if the result of the condition is false. For example:
+
+```swift
+precondition(index > 0, "Index must be greater than zero.")
+```
+
+## Difference from assert
+
+**assert:** is used mainly during development and is disabled in release builds unless explicitly enabled.
+
+**precondition:** is checked even in release builds, making it suitable for critical conditions and leading to app crash if not met.
