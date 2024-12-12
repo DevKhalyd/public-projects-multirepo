@@ -11,7 +11,6 @@
    - Focus on classes, objects, inheritance, and protocols.
    - Explore Swift-specific concepts like structs, enums, and optionals.
 
----
 
 ## **Stage 2: Core iOS Concepts**
 1. **Learn Xcode Basics**
@@ -89,7 +88,6 @@
 - **Practice Sites**: LeetCode (for problem-solving in Swift), Hackerrank, and [Ray Wenderlich](https://www.raywenderlich.com/ios)
 - **Community**: Join forums like Stack Overflow or Reddit’s [r/iOSProgramming](https://www.reddit.com/r/iOSProgramming/).
 
----
 
 # References
 
