@@ -156,5 +156,34 @@ if score < 10 {
 
 If your program stops running — for example, because of a runtime error or a crash — deferred code doesn’t execute. However, deferred code does execute after an error is thrown; for information about using defer with error handling, see Specifying Cleanup Actions.
 
+# Checking API Availability
+
+Swift has built-in support for checking API availability, which ensures that you don’t accidentally use APIs that are unavailable on a given deployment target.
+
+The compiler uses availability information in the SDK to verify that all of the APIs used in your code are available on the deployment target specified by your project. Swift reports an error at compile time if you try to use an API that isn’t available. Example:
+
+```swift
+if #available(iOS 10, macOS 10.12, *) {
+    // Use iOS 10 APIs on iOS, and use macOS 10.12 APIs on macOS
+} else {
+    // Fall back to earlier iOS and macOS APIs
+}
+
+// or
+
+// They do the same thing
+if #available(iOS 10, *) {
+} else {
+    // Fallback code
+}
+
+
+if #unavailable(iOS 10) {
+    // Fallback code
+}
+
+```
+
+
 Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Checking-API-Availability
 
