@@ -185,5 +185,22 @@ if #unavailable(iOS 10) {
 ```
 
 
-Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/controlflow/#Checking-API-Availability
 
+# Functions
+
+Example:
+
+```swift
+func greet(person: String) -> String {
+    let greeting = "Hello, " + person + "!"
+    return greeting
+}
+print(greet(person: "Anna"))
+// Prints "Hello, Anna!"
+print(greet(person: "Brian"))
+// Prints "Hello, Brian!"
+```
+
+
+
+Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions#Functions-with-Multiple-Return-Values
