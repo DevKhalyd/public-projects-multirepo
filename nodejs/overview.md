@@ -21,3 +21,42 @@ We split our code into different files to maintain, organize and reuse code when
 # Global Keyword
 
 In browsers, the top-level scope is the global scope, and its global object is called the window object. Within the browser, var something will define a new global variable inside the window object. In Node.js, this is different. The top-level scope is not the global scope; var something inside a Node.js module will be local to that module.
+
+# npx
+
+npx is a very powerful command that’s been available in npm starting version 5.2, released in July 2017. If you don’t want to install npm, you can install npx as a standalone package. npx lets you run code built with Node.js and published through the npm registry, without needing to install the package itself. This is particularly useful for trying out new tools, running one-time commands, or using packages in shared environments where global installations are undesirable. npx takes care of downloading the package on-the-fly, running the desired command, and then cleaning up the temporary installation. This keeps your project’s dependencies lean and avoids version conflicts.
+
+# npm
+
+npm is the standard package manager for Node.js.
+
+It is two things: first and foremost, it is an online repository for the publishing of open-source Node.js projects; second, it is a command-line utility for interacting with said repository that aids in package installation, version management, and dependency management. A plethora of Node.js libraries and applications are published on npm, and many more are added every day
+
+# Global Install vs Local Install
+
+NodeJS and NPM allow two methods of installing dependencies/packages: Local and Global. This is mainly used when adding a package or dependency as part of a specific project you’re working on. The package would be installed (with its dependencies) in node_modules folder under your project. In addition, in package.json file there will be a new line added for the installed dependency under the label dependencies. At this point - you can start using the package in your NodeJS code by importing the package. Unlike the local install, you can install packages and dependencies globally. This would install it in a system path, and these packages would be available to any program which runs on this specific computer. This method is often used for installing command line tools (for example, even npm program is a Globally installed npm package).
+
+# Local Install
+
+Locally installed packages are available only to the project where the packages are installed, while the globally installed packages can be used any where without installing them into a project. Another use case of the global packages is when using CLI tools.
+
+# Semantic Versioning
+
+Semantic Versioning is a standard for versioning software that’s widely adopted in the npm ecosystem. It provides a clear and consistent way to communicate changes in a software package to users.
+
+Version Format
+A semantic version number consists of three parts separated by dots:
+
+MAJOR: Incremented when there are incompatible API changes.
+MINOR: Incremented when new functionality is added in a backwards-compatible manner.
+PATCH: Incremented when bug fixes are made without affecting the API.
+
+## Example: 1.2.3
+
+1 is the major version.
+2 is the minor version.
+3 is the patch version.
+
+# Reference
+
+https://roadmap.sh/nodejs
