@@ -24,3 +24,14 @@ Here, we have written down a set of instructions that when followed, will solve 
 
 # Big O
 
+Big O is a notation used to describe the computational complexity of an algorithm. The computational complexity of an algorithm is split into two parts: time complexity and space complexity. The time complexity of an algorithm is the amount of time the algorithm needs to run relative to the input size. The space complexity of an algorithm is the amount of memory allocated by the algorithm when run relative to the input size.
+
+```bash
+Typically, people care about the time complexity more than the space complexity, but both are important to know.
+```
+
+Time complexity: as the input size grows, how much longer does the algorithm take to complete?
+
+Space complexity: as the input size grows, how much more memory does the algorithm use?
+
+
