@@ -14,3 +14,5 @@ A software architect is a software expert who makes high-level design choices an
 - Architectural Patterns
 - Enterprise Patterns
 
+Reference: https://roadmap.sh/software-design-architecture
+
