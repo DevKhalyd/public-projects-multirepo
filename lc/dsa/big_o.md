@@ -61,3 +61,9 @@ These functions represent the complexity. For example, you would say "The time c
 
 # Calculating complexity
 
+
+Roughly, your function calculates the number of operations or amount of memory (depending on if you're analyzing time or space complexity, respectively) your algorithm consumes relative to the input size. Using the example from above (find the largest number in nums), we have a time complexity of O(n). The algorithm involves iterating over each element in nums, so if we define **n** as the length of nums, our algorithm uses approximately **n** steps. If we pass an array with a length of 10, it will perform approximately 10 steps. If we pass an array with a length of 10,000,000,000, it will perform approximately 10,000,000,000 steps.
+
+**Time complexity is not meant to be an exact representation of the number of operations. For example, we needed to initialize maxNum = 0 and we also needed to output maxNum at the end. Thus, you could argue that for an array of length 10, we need 12 operations. This is not the point of time complexity. The point of time complexity is to describe how the number of operations changes as the input changes. The number of iterations we do depends on nums, but initializing maxNum = 0 doesn't.**
+
+Being able to analyze an algorithm and calculate its time and space complexity is a crucial skill. Interviewers will almost always ask you for your algorithm's complexity to check that you actually understand your algorithm and didn't just memorize/copy the code. Being able to analyze an algorithm also enables you to determine what parts of it can be improved.
