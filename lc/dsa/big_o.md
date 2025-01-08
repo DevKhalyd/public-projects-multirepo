@@ -67,3 +67,15 @@ Roughly, your function calculates the number of operations or amount of memory (
 **Time complexity is not meant to be an exact representation of the number of operations. For example, we needed to initialize maxNum = 0 and we also needed to output maxNum at the end. Thus, you could argue that for an array of length 10, we need 12 operations. This is not the point of time complexity. The point of time complexity is to describe how the number of operations changes as the input changes. The number of iterations we do depends on nums, but initializing maxNum = 0 doesn't.**
 
 Being able to analyze an algorithm and calculate its time and space complexity is a crucial skill. Interviewers will almost always ask you for your algorithm's complexity to check that you actually understand your algorithm and didn't just memorize/copy the code. Being able to analyze an algorithm also enables you to determine what parts of it can be improved.
+
+**Rules**
+
+There are a few rules when it comes to calculating complexity. First, we ignore constants. That means (999n) = O(8n) = O(n).
+
+Why do we do this? Imagine you had two algorithms. Algorithm A uses approximately n operations and algorithm B uses approximately 5n operations.
+
+When n = 100 algorithm A uses 100 operations and algorithm B uses 500 operations. What happens if we double n Then algorithm A uses  200 operations and algorithm B uses 1000 operations. As you can see, when we double the value of n, both algorithms require double the amount of operations. If we were to 10x the value of n, then both algorithms would require 10x more operations.
+
+Remember: the point of complexity is to analyze the algorithm as the input changes. We don't care that algorithm B is 5x slower than algorithm A. For both algorithms, as the input size increases, the number of operations required increases linearly. That's what we care about. Thus, both algorithms are O(n).
+
+Continue on 2 rule
