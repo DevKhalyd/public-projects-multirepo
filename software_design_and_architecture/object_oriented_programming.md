@@ -31,4 +31,5 @@ Polymorphism: The ability of objects of different classes to be treated as objec
 Abstraction: The process of hiding the implementation details of an object and exposing only its essential features, reducing complexity and improving the modularity of the code.
 
 Classes: The blueprint for creating objects, which have both data (attributes) and behavior (methods).
+
 Objects: Instances of a class, which have their own unique state and behavior.
