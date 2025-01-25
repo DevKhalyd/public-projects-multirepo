@@ -36,4 +36,4 @@ In order to run Vim Tutor, just call the command **vimtutor** from your shell pr
 
 Ref: https://vimschool.netlify.app/introduction/vimtutor/
 
-Continue on lession 2.1
+Continue on lession 2.3
