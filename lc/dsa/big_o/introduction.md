@@ -76,6 +76,30 @@ Why do we do this? Imagine you had two algorithms. Algorithm A uses approximatel
 
 When n = 100 algorithm A uses 100 operations and algorithm B uses 500 operations. What happens if we double n Then algorithm A uses  200 operations and algorithm B uses 1000 operations. As you can see, when we double the value of n, both algorithms require double the amount of operations. If we were to 10x the value of n, then both algorithms would require 10x more operations.
 
-Remember: the point of complexity is to analyze the algorithm as the input changes. We don't care that algorithm B is 5x slower than algorithm A. For both algorithms, as the input size increases, the number of operations required increases linearly. That's what we care about. Thus, both algorithms are O(n).
+**Remember: the point of complexity is to analyze the algorithm as the input changes. We don't care that algorithm B is 5x slower than algorithm A. For both algorithms, as the input size increases, the number of operations required increases linearly. That's what we care about. Thus, both algorithms are O(n).**
 
-Continue on 2 rule
+The second rule is that we consider the complexity as the variables tend to infinity. When we have addition/subtraction between terms of the same variable, we ignore all terms except the most powerful one.
+
+For example:
+
+![When n tends to infinity](./assets/n_tends_to_infinity.png)
+
+Why? Because as n tends to infinity, 2^n becomes so large that the other two terms are effectively zero in comparison.
+
+Let's say that we had an algorithm that required n + 500 operations.  It has a time complexity of O(n). When n is small, let's say + 500 term is very significant - but we don't care about that. We need to perform the analysis as if n is tending toward infinity, and in that scenario, the 500 is nothing.
+
+The best complexity possible is O(1), called "constant time" or "constant space". It means that the algorithm ALWAYS uses the same amount of resources, regardless of the input.
+
+**Note that a constant time complexity doesn't necessarily mean that an algorithm is fast (O(5000000)=O(1)), it just means that its runtime is independent of the input size.**
+
+When talking about complexity, there are normally three cases:
+
+- Best case scenario
+- Average case
+- Worst case scenario
+
+In most algorithms, all three of these will be equal, but some algorithms will have them differ. If you have to choose only one to represent the algorithm's time or space complexity, never choose the best case scenario. It is most correct to use the worst case scenario, but you should be able to talk about the difference between the cases.
+
+# Analyzing time complexity
+
+Continue:...Analyzing time complexity
