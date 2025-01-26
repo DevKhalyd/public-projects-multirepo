@@ -1,10 +1,23 @@
 # Shortcuts
 
-**Edition**
 
-dw -> Delete the word after cursor, until the beginning of the next word, excluding the fist character.
-d$ -> Delete the whole line after the cursor
-de -> Delete the word after the cursor, unti the final of the word, including the last character.
+TODO: Create md table after complete all shortcurs for vim
+
+
+**Screen Movemnts**
+
+Ctrl + d = Scroll down half a screen
+Ctrl + u = Scroll up half a screen
+zz = Center the current line in the screen
+
+**Jump Movements**
+
+
+gg -> Jump to the beginning of the file
+G -> Jump to the end of the file
+:n -> Jump to the line **n** (e.g., :10 goes to line 10)
+% -> Jump between matching parentheses, brackets, etc. (Example{$1})
+
 
 **Movement**
 
@@ -16,15 +29,23 @@ w -> Move to the next word excluding the first character
 e -> Move to the final if the current word including the last character
 b -> Jump to the start of the previous word
 ge -> Jump to the end of the previous word
-W,E,B,gE -> Helps to navigate through whitespace-separated words
+0 -> Jump to the beginning of the line
+$ -> Jump to the end of the line
+{ -> Jump to the beginning of the paragraph
+} -> Jump to the end of the paragraph
 
+W,E,B,gE -> Helps to navigate through whitespace-separated words
 
 Word-Separate-Words-how-it-works?
 
-
 Note: Take in consideration that when capittal letter is enabled, the behavior changes.
 
-**Filess manipulation**
+**Search Movements**
+
+/text ->  Search forward for text
+?text -> Search backward for text
+
+**Files manipulation**
 
 u -> undo
 ctrl + r -> redo
@@ -34,4 +55,13 @@ a -> Insert mode and add characters
 :q! -> Delete all changes
 vim name.file -> open the file with vim
 
-Continue on: https://chatgpt.com/c/67952c23-1780-8013-90f6-a8142c30a9be
+
+**Edition**
+
+dw -> Delete the word after cursor, until the beginning of the next word, excluding the fist character.
+d$ -> Delete the whole line after the cursor
+de -> Delete the word after the cursor, unti the final of the word, including the last character.
+"+p -> Paste from the clipboard
+
+Continue with vimtutor
+
