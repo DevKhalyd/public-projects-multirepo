@@ -14,6 +14,8 @@ A folder that contains information about vs code and how to configure it to code
 | Code Block              | Option + }                 |
 | Backslash (`\`)         | Option + ?                 |
 | View: Toggle Terminal   | Option + \|                 |
+| Add multiple cursors    | cmd + option + Arrow (Up \| Down) |
+
 
 ## Utils
 
