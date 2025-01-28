@@ -102,4 +102,12 @@ In most algorithms, all three of these will be equal, but some algorithms will h
 
 # Analyzing time complexity
 
-Continue:...Analyzing time complexity
+Let's look at some example algorithms in pseudo-code and talk about their time complexities.
+
+```java
+for (int num: arr) {
+    print(num)
+}
+```
+
+This algorithm has a time complexity of O(n). In each for loop iteration, we are performing a print, which costs O(1). The for loop iterates n times, which gives a time complexity of O(1⋅n)=O(n).
