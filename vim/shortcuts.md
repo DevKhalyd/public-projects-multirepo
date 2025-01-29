@@ -48,6 +48,7 @@ Note: Take in consideration that when capittal letter is enabled, the behavior c
 **Files manipulation**
 
 u -> undo
+U -> undo a whole line (Restore the original state)
 ctrl + r -> redo
 x -> Delete the character after the cursor
 a -> Insert mode and add characters
@@ -58,6 +59,7 @@ vim name.file -> open the file with vim
 
 **Edition**
 
+dd -> Delete a whole line
 dw -> Delete the word after cursor, until the beginning of the next word, excluding the fist character.
 d$ -> Delete the whole line after the cursor
 de -> Delete the word after the cursor, unti the final of the word, including the last character.
@@ -75,5 +77,5 @@ d2w -> Delete two words
 
 Note: All actions can use counters to do n times the same action
 
-Continue with vimtutor 2.6
+Continue with vimtutor 3.1
 
