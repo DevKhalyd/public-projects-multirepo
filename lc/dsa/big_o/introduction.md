@@ -111,3 +111,32 @@ for (int num: arr) {
 ```
 
 This algorithm has a time complexity of O(n). In each for loop iteration, we are performing a print, which costs O(1). The for loop iterates n times, which gives a time complexity of O(1⋅n)=O(n).
+
+```java
+// Given an integer array "arr" with length n,
+
+for (int num: arr) {
+    for (int i = 0; i < 500,000; i++) {
+        print(num)
+    }
+}
+```
+
+This algorithm has a time complexity of O(n). In each inner for loop iteration, we are performing a print, which costs O(1). This for loop iterates 500,000 times, which means each outer for loop iteration costs O(500000)=O(1). The outer for loop iterates n times, which gives a time complexity of O(n).
+
+Even though the first two algorithms technically have the same time complexity, in reality the second algorithm is much slower than the first one. It's correct to say that the time complexity is 
+O(n), but it's important to be able to discuss the differences between practicality and theory.
+
+```java
+// Given an integer array "arr" with length n,
+for (int num: arr) {
+    for (int num2: arr) {
+        print(num * num2)
+    }
+}
+```
+
+This algorithm has a time complexity of O(n^2). In each inner for loop iteration, we are performing a multiplication and print, which both cost O(1). The inner for loop runs n times, which means each outer for loop iteration costs O(n). The outer for loop runs O(n) times, which gives a time complexity of 
+O(n⋅n)=O(n^2).
+
+Continue on example 3 loop fors
