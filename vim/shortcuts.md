@@ -59,12 +59,12 @@ vim name.file -> open the file with vim
 
 **Edition**
 
-dd -> Delete a whole line
+dd -> Delete a whole line and store in the default register
 dw -> Delete the word after cursor, until the beginning of the next word, excluding the fist character.
 d$ -> Delete the whole line after the cursor
 de -> Delete the word after the cursor, unti the final of the word, including the last character.
 "+p -> Paste from the clipboard
-
+p -> past from the default register
 
 **Movement Counter**
 
