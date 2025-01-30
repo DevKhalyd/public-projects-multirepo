@@ -139,4 +139,21 @@ for (int num: arr) {
 This algorithm has a time complexity of O(n^2). In each inner for loop iteration, we are performing a multiplication and print, which both cost O(1). The inner for loop runs n times, which means each outer for loop iteration costs O(n). The outer for loop runs O(n) times, which gives a time complexity of 
 O(n⋅n)=O(n^2).
 
-Continue on example 3 loop fors
+
+```java
+// Given integer arrays "arr" with length n and "arr2" with length m,
+
+for (int num: arr) {
+    print(num)
+}
+
+for (int num: arr) {
+    print(num)
+}
+
+for (int num: arr2) {
+    print(num)
+}
+```
+
+This algorithm has a time complexity of O(n+m). The first two for loops both cost O(n), whereas the final for loop costs O(m). This gives a time complexity of O(2n+m) = O(n+m).
