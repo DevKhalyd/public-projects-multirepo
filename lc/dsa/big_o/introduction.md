@@ -157,3 +157,17 @@ for (int num: arr2) {
 ```
 
 This algorithm has a time complexity of O(n+m). The first two for loops both cost O(n), whereas the final for loop costs O(m). This gives a time complexity of O(2n+m) = O(n+m).
+
+```java
+// Given an integer array "arr" with length n,
+
+for (int i = 0; i < arr.length; i++) {
+    for (int j = i; j < arr.length; j++) {
+        print(arr[i] + arr[j])
+    }
+}
+```
+
+This algorithm has a time complexity of O(n^2). The inner for loop is dependent on what iteration the outer for loop is currently on. The first time the inner for loop is run, it runs n times. The second time, it runs n−1 times, then n−3, and so on.
+
+That means the total iterations is 1 + 2 + 3 + 4 + ... + n, which is the partial sum of this series, which is equal to n⋅(n+1) / 2 = n^2 + n / 2. In big O, this is O(n^2) because the addition term in the numerator and the constant term in the denominator are both ignored.
