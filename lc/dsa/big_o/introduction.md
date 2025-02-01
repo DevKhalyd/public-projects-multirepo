@@ -182,3 +182,55 @@ O(logn) means that somewhere in your algorithm, the input is being reduced by a 
 
 # Analyzing space complexity
 
+When you initialize variables like arrays or strings, your algorithm is allocating memory. We never count the space used by the input (it is bad practice to modify the input), and usually don't count the space used by the output (the answer) unless an interviewer asks us to.
+
+In the below examples, the code is only allocating memory so that we can analyze the space complexity, so we will consider everything we allocate as part of the space complexity (there is no "answer").
+
+```java
+// Given an integer array "arr" with length n
+
+for (int num: arr) {
+    print(num)
+}
+```
+
+This algorithm has a space complexity of O(1). The only space allocated is an integer variable num, which is constant relative to n.
+
+```java
+// Given an integer array "arr" with length n
+
+Array doubledNums = int[]
+
+for (int num: arr) {
+    doubledNums.add(num * 2)
+}
+```
+
+This algorithm has a space complexity of O(n). The array doubledNums stores n integers at the end of the algorithm.
+
+```java
+// Given an integer array "arr" with length n
+
+Array nums = int[]
+int oneHundredth = n / 100
+
+for (int i = 0; i < oneHundredth; i++) {
+    nums.add(arr[i])
+}
+```
+
+This algorithm has a space complexity of O(n). The array nums stores the first 1% of numbers in arr. This gives a space complexity of O(n / 100) = O(n).
+
+```java
+// Given integer arrays "arr" with length n and "arr2" with length m,
+
+Array grid = int[n][m]
+
+for (int i = 0; i < arr.length; i++) {
+    for (int j = 0; j < arr2.length; j++) {
+        grid[i][j] = arr[i] * arr2[j]
+    }
+}
+```
+
+This algorithm has a space complexity of O(n⋅m). We are creating a grid that has dimensions n⋅m.
