@@ -66,7 +66,9 @@ de -> Delete the word after the cursor, unti the final of the word, including th
 "+p -> Paste from the clipboard
 p -> past from the default register
 r$anyCharacter -> Remplaze with the given character
-
+ce -> Delete all the characters of one word after the cursor
+c$ -> Delete all the characters of one line after the cursor
+cc -> Delete the whole line
 
 **Movement Counter**
 
@@ -79,5 +81,4 @@ d2w -> Delete two words
 
 Note: All actions can use counters to do n times the same action
 
-Continue with vimtutor 3.3
-
+Continue with vimtutor: 4.1 
