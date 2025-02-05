@@ -26,3 +26,19 @@ fn(1)
 Each call to fn first prints i (which starts at 1), and then calls fn again, but incrementing i (to print the next number).
 
 However, this code is actually wrong. Do you see the problem? The function calls will never stop! Running this code would print natural numbers (positive integers) infinitely (or until the computer exploded). The return line never gets reached because fn(i + 1) comes before it.
+
+We need what is called a base case to make the recursion stop. Base cases are conditions at the start of recursive functions that terminate the calls.
+
+```python
+def fn(i):
+    if i > 10:
+        return
+
+    print(i)
+    fn(i + 1)
+    return
+
+fn(1)
+```
+
+# Breaking problems down
