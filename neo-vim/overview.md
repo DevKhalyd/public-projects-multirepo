@@ -31,3 +31,9 @@ Builtin :terminal set the standard for "TTY as a basic component".
 GitHub: https://github.com/neovim/neovim?tab=readme-ov-file
 
 Website: https://neovim.io/
+
+# Next steps
+
+- Try using nvim in the normal files and cmd when making this research
+
+1. Invesigate how to use the plugins or what are the recommended
