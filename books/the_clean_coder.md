@@ -32,7 +32,7 @@ could:
 your dependencies.
 
 • Create an interface that abstracts your module’s dependency from the other
-team’s infrastructure.
+team's infrastructure.
 
 • Meet at least three times this week with the build guy to make sure your
 changes work well in the company’s build system.
