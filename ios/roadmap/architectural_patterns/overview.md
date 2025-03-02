@@ -13,4 +13,4 @@ iOS development architectural patterns are structured approaches to organizing c
 
 # TODO
 
-Understand really well each architecture patterns and ask gpt to give the most common patterns in real projects to focus on them.
+- See MVVM and VIPER
