@@ -59,3 +59,13 @@ closer to that goal:
 • Sit down with the QA who found each bug to see a repro of that bug.
 
 • Spend all the time you have this week trying to fix each bug.
+
+## Practicing
+
+All professionals practice their art by engaging in skill-sharpening exercises.
+Musicians rehearse scales. Football players run through tires. Doctors practice
+sutures and surgical techniques. Lawyers practice arguments. Soldiers rehearse
+missions. When performance matters, professionals practice. Practice no matter what.
+
+- Leetcode
+- Building projects
