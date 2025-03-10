@@ -1,0 +1,7 @@
+# Async / Await
+
+Async/await in Swift is a modern approach to handling asynchronous operations, introduced to simplify complex asynchronous code and mitigate the challenges of callback-based programming. This feature allows developers to write asynchronous code that looks and behaves like synchronous code, improving readability and maintainability. The ‘async’ keyword marks functions that can be suspended and resumed, while ‘await’ is used to call these functions and wait for their completion without blocking the entire thread. This pattern integrates seamlessly with Swift’s error handling mechanism, allowing for more natural try-catch blocks in asynchronous contexts. Async/await works with Swift’s structured concurrency system, including tasks and actors, to manage complex asynchronous operations more easily.
+
+# Concurrency
+
+Swift’s concurrency model centers on async/await syntax, allowing asynchronous code to be written in a clear, sequential manner. It employs actors to manage shared mutable state safely, and the Task API for handling concurrent work. Structured concurrency ensures proper task lifecycle management. The language also offers async sequences and streams for working with asynchronous data, and the Sendable protocol to guarantee thread-safe data sharing. This comprehensive approach enables developers to write efficient, safe concurrent code while minimizing common issues like race conditions and deadlocks.
