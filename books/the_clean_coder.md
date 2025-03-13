@@ -69,3 +69,48 @@ missions. When performance matters, professionals practice. Practice no matter w
 
 - Leetcode
 - Building projects
+
+
+## The Test Automation Pyramid
+
+Professional developers employ the discipline of Test Driven Development
+to create unit tests. Professional development teams use acceptance tests to
+specify their system, and continuous integration to prevent regression. But these tests are only part of the story. As good as it is to have a suite of unit and acceptance tests, we also need higher-level tests to ensure that QA finds nothing. The following figure shows the Test Automation Pyramid, a graphical depiction of the kinds of tests that a professional development
+organization needs.
+
+![Test Automation Pyramid](assets/the_test_automation_pyramid.png)
+
+## Unit Tests
+
+At the bottom of the pyramid are the unit tests. These tests are written by
+programmers, for programmers, in the programming language of the system.
+The intent of these tests is to specify the system at the lowest level. Developers
+write these tests before writing production code as a way to specify what they
+are about to write. They are executed as part of Continuous Integration to
+ensure that the intent of the programmers’ is upheld.
+
+At the bottom of the pyramid are the unit tests. These tests are written by
+programmers, for programmers, in the programming language of the system.
+The intent of these tests is to specify the system at the lowest level. Developers
+write these tests before writing production code as a way to specify what they
+are about to write. They are executed as part of Continuous Integration to
+ensure that the intent of the programmers’ is upheld.
+
+## Component Tests
+
+These are some of the acceptance tests mentioned in the previous chapter.
+Generally they are written against individual components of the system. The
+components of the system encapsulate the business rules, so the tests for those
+components are the acceptance tests for those business rules.
+
+Component tests cover roughly half the system. They are directed more towards
+happy-path situations and very obvious corner, boundary, and alternate-path
+cases. The vast majority of unhappy-path cases are covered by unit tests and are
+meaningless at the level of component tests.
+
+## Integration Tests
+
+These tests only have meaning for larger systems that have many components. These tests assemble groups of components and test how well they communicate with each other. The other components of the system are decoupled as usual with appropriate mocks and test-doubles.
+
+Integration tests are choreography tests. They do not test business rules. Rather, they test how well the assembly of components dances together. They are plumbing tests that make sure that the components are properly connected and can clearly communicate with each other.
+
