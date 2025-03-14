@@ -114,3 +114,33 @@ These tests only have meaning for larger systems that have many components. Thes
 
 Integration tests are choreography tests. They do not test business rules. Rather, they test how well the assembly of components dances together. They are plumbing tests that make sure that the components are properly connected and can clearly communicate with each other.
 
+Integration tests are typically written in the same language and environment
+as component tests. They are typically not executed as part of the Continuous
+Integration suite, because they often have longer runtimes. Instead, these tests
+are run periodically (nightly, weekly, etc.) as deemed necessary by their
+authors.
+
+## System Tests
+
+These are automated tests that execute against the entire integrated system.
+They are the ultimate integration tests. They do not test business rules directly.
+Rather, they test that the system has been wired together correctly and its parts
+interoperate according to plan. We would expect to see throughput and
+performance tests in this suite.
+
+These tests are written by the system architects and technical leads. Typically
+they are written in the same language and environment as integration tests for
+the UI. They are executed relatively infrequently depending on their duration,
+but the more frequently the better.
+
+System tests cover perhaps 10% of the system. This is because their intent is not
+to ensure correct system behavior, but correct system construction. The correct
+behavior of the underlying code and components have already been ascertained
+by the lower layers of the pyramid.
+
+## Conclusion
+
+TDD is a powerful discipline, and Acceptance Tests are valuable ways to express
+and enforce requirements. But they are only part of a total testing strategy. To
+make good on the goal that “QA should find nothing,” development teams need to work hand in hand with QA to create a hierarchy of unit, component, inte-gration, system, and exploratory tests. These tests should be run as frequently as possible to provide maximum feedback and to ensure that the system remains continuously clean.
+
