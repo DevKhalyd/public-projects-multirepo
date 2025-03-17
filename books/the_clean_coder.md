@@ -138,9 +138,15 @@ to ensure correct system behavior, but correct system construction. The correct
 behavior of the underlying code and components have already been ascertained
 by the lower layers of the pyramid.
 
-## Conclusion
+### Conclusion
 
 TDD is a powerful discipline, and Acceptance Tests are valuable ways to express
 and enforce requirements. But they are only part of a total testing strategy. To
 make good on the goal that “QA should find nothing,” development teams need to work hand in hand with QA to create a hierarchy of unit, component, inte-gration, system, and exploratory tests. These tests should be run as frequently as possible to provide maximum feedback and to ensure that the system remains continuously clean.
 
+## Presure
+
+The trick to handling pressure is to avoid it when you can, and weather it when
+you can’t. You avoid it by managing commitments, following your disciplines,
+and keeping clean. You weather it by staying calm, communicating, following
+your disciplines, and getting help.
