@@ -1,4 +1,8 @@
-# Layers
+# Clean Architecture
+
+Clean Architecture provides a way to structure applications that separate the different components of an application into modules, each with a well-defined purpose. The main idea behind Clean Architecture is to separate the application into three main layers: the presentation layer, the domain layer, and the data layer.
+
+![Clean Architecture Code Overview](assets/ca_overview.png)
 
 - Domain
 - Data
@@ -47,3 +51,17 @@ It contains:
 - UI Components (Widgets): Flutter widgets that display data and handle user input.
 - State Management (Bloc, Cubit, Provider, Riverpod): Manages the UI state and interacts with use cases.
 - Dependency Injection: Injects use cases into the presentation layer.
+
+## Extras Folders
+
+**core:** The core folder is a fundamental module housing key components like utils, routes, network, services, validators, translators and styles. Its content can be tailored by developers to improve code cleanliness and adapt to evolving project needs, ensuring simplicity, modularity, and ease of maintenance.
+
+**shared:** The shared folder, it is like features folder but for common feature in our application, like payment feature, shared pages, shared widgets, abd others.
+
+Reference Article: https://medium.com/@yamen.abd98/clean-architecture-in-flutter-mvvm-bloc-dio-79b1615530e1
+
+![Clean Architecture Code Overview](assets/ca_code_overview.png)
+
+# MVVM and Clean Architecture
+
+TODO: Define how MVVM works along with CA,take same reference
