@@ -1,0 +1,11 @@
+# Services
+
+Services: A service in Android is an app component that performs operations in the background without a user interface. It can be started by an application component, like an activity, and it will continue to run in the background even if the user switches to another application. There are two types of services in Android, namely, Started Service and Bound Service. A Started Service is used to perform a single operation, such as downloading a large file. On the other hand, a Bound Service offers a client-server interface that allows components to interact with the service, send requests, receive results, and even perform interprocess communication (IPC).
+
+# Content Provider
+
+A Content Provider in Android is a key component that allows applications to securely share data with other applications. They act as a layer between databases and applications to enhance data security. Content providers manage access to a structured set of data by handling data transactions, implementing data security, and maintaining isolation between applications. They provide an abstracted interface which is used to access data, while the underlying storage method (Like SQLite database, web, or any other method) remains hidden. This mechanism aids in retrieving data from a non-relational source in a structured way. They’re used primarily when data needs to be shared between multiple applications, not just within a single application.
+
+# Broadcast Receiver
+
+Broadcast Receivers in Android are components that respond to system-wide broadcast announcements. They can be registered to respond to a specific type of broadcasts or implement a user-defined broadcast. While you can initiate a broadcast from your app, they are generally used for receiving system notifications or communicating with other applications. However, keep in mind that they cannot display a user interface, but they can start activities if necessary, which do have a user interface. A BroadcastReceiver class must override the onReceive() method where each message is received as an Intent object parameter.
