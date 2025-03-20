@@ -62,6 +62,106 @@ Reference Article: https://medium.com/@yamen.abd98/clean-architecture-in-flutter
 
 ![Clean Architecture Code Overview](assets/ca_code_overview.png)
 
-# MVVM and Clean Architecture
+# MVVM
 
-TODO: Define how MVVM works along with CA,take same reference
+MVVM stands for Model-View-ViewModel, and it is a design pattern commonly used in software development, particularly in the context of user interface (UI) development. MVVM is often associated with frameworks that support data binding, where changes in the UI automatically update the underlying data and vice versa.
+
+In Flutter, the MVVM is not as strictly defined as in some other frameworks that natively support data binding. However, developers often adopt MVVM principles in Flutter by structuring their code in a way that separates concerns, isolates presentation logic, and promotes maintainability.
+
+Here’s a practical guide to implementing MVVM principles in Flutter:
+
+**Model**
+
+The Model represents the application’s data and business logic. It is responsible for managing the data and ensuring the consistency and integrity of the application. In the context of MVVM, the Model is often independent of the user interface and is designed to be reusable across different presentation layers.
+
+In Flutter, the model typically consists of Dart classes or objects representing the data and business logic of your application. These classes encapsulate the application’s state and functionality. They don’t directly interact with the UI.
+
+Example:
+
+```dart
+class User {
+  String name;
+  int age;
+
+  User({required this.name, required this.age});
+}
+```
+
+**View**
+
+The View is responsible for presenting the data to the user and capturing user interactions. It is the user interface that users interact with. In MVVM, the View is kept as lightweight as possible and is primarily concerned with displaying information. It observes changes in the ViewModel and updates the UI accordingly.
+
+In Flutter, the view is represented by widgets. Widgets are responsible for rendering UI elements and capturing user interactions. Keep your widgets as “dumb” as possible, minimizing logic in the UI components.
+
+```dart
+class UserView extends StatelessWidget {
+
+  const UserView({required this.user});
+  
+  final User user;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      title: Text(user.name),
+      subtitle: Text('Age: ${user.age}'),
+    );
+  }
+}
+```
+
+**ViewModel**
+
+The ViewModel is the intermediary between the Model and the View. It contains the presentation logic, exposing data and commands that the View can bind to. The ViewModel is designed to be testable independently of the UI. It also often encapsulates the state of the View and handles user input and interactions.
+
+While Flutter doesn’t have a native ViewModel, you can create Dart classes to act as ViewModels. ViewModels contain the presentation logic, handle data transformations, and provide a clean API for the UI to interact with the data.
+
+Example:
+
+```dart
+import 'dart:async';
+
+class UserViewModel {
+  final StreamController<User> _userController = StreamController<User>();
+  Stream<User> get userStream => _userController.stream;
+
+  // Business logic and data transformation
+  void updateUserAge(User user, int newAge) {
+    final updatedUser = User(name: user.name, age: newAge);
+    _userController.add(updatedUser);
+  }
+
+  // Dispose the controller to avoid memory leaks
+  void dispose() {
+    _userController.close();
+  }
+}
+```
+
+## Connecting View and ViewModel
+
+In your Flutter application, you can use state management solutions like Provider, Riverpod, or even simple StatefulWidget to connect the View and ViewModel. These solutions help manage the state and notify the UI when data changes.
+
+Example using Provider:
+
+```dart
+class UserPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final userViewModel = Provider.of<UserViewModel>(context);
+
+    return StreamBuilder<User>(
+      stream: userViewModel.userStream,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return UserView(user: snapshot.data!);
+        } else {
+          return CircularProgressIndicator();
+        }
+      },
+    );
+  }
+}
+```
+
+TODO: In-depth explanation of Clean Architecture with Flutter
