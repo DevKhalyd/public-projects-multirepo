@@ -164,4 +164,32 @@ class UserPage extends StatelessWidget {
 }
 ```
 
-TODO: In-depth explanation of Clean Architecture with Flutter
+# Explaining MVVM and Clean Architecture
+
+MVVM is a software architectural pattern, which is a broader category that encompasses design patterns.
+
+# Architectural Pattern vs. Design Pattern
+
+Architectural Pattern → Defines the high-level structure of an application.
+
+**Example:** MVVM, MVC, MVP, Clean Architecture
+
+Design Pattern → Solves specific recurring problems within a codebase.
+
+**Example:** Singleton, Factory, Observer, Repository
+
+MVVM and Clean Architecture are related but operate at different levels of abstraction
+
+- MVVM is a presentation-layer architectural pattern. It primarily organizes how the UI, logic, and data interact.
+
+- Clean Architecture is a high-level architectural pattern that structures the entire application, separating concerns into multiple layers.
+
+## Presentation Layer (MVVM fits here)
+
+View (UI) → SwiftUI, Jetpack Compose, Flutter Widgets
+
+ViewModel → Calls use cases from the domain layer
+
+So, MVVM is a part of Clean Architecture, not an alternative to it.
+
+Since MVVM is just one way to structure the presentation layer, you can replace it with MVC, MVP, MVI, or any other similar pattern without breaking Clean Architecture.
