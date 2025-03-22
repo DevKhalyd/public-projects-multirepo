@@ -141,3 +141,9 @@ export const makeMove = (gameId: string, playerId: string, index: number): Game 
 
     return game;
 };
+
+/**
+ * TODO:
+ * 1. Continue with the next steps with the socket
+ * 2. Finally test the core functionality of the game
+ */
