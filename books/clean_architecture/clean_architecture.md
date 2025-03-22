@@ -7,3 +7,8 @@ The measure of design quality is simply the measure of the effort required to
 meet the needs of the customer. If that effort is low, and stays low throughout the
 lifetime of the system, the design is good. If that effort grows with each new
 release, the design is bad. It’s as simple as that.
+
+To take software architecture seriously, you need to know what good software
+architecture is. To build a system with a design and an architecture that minimize
+effort and maximize productivity, you need to know which attributes of system
+architecture lead to that end.
