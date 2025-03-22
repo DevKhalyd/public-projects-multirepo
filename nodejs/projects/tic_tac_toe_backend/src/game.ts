@@ -1,10 +1,19 @@
-// TODO: Add tests for the game logic functions
-
 /**
  * Represents the two possible players in the game.
  * "X" and "O" are used as board symbols and to track turns.
  */
 type Player = "X" | "O";
+
+/**
+ * Enum for handling move errors instead of raw strings.
+ */
+enum MoveError {
+    GameNotFound = 1,
+    GameAlreadyEnded,
+    InvalidMove,
+    CellAlreadyTaken,
+    NotYourTurn
+}
 
 /**
  * Represents a Tic-Tac-Toe game instance.
@@ -21,7 +30,6 @@ interface Game {
     /** Unique identifier for the game. */
     id: string;
 
-    // TODO: Make a 2D array for the board instead of 1D
     /** 3x3 board represented as a 1D array. */
     board: (Player | undefined)[];
 
@@ -35,12 +43,12 @@ interface Game {
     winner: Player | undefined;
 }
 
-
 /** In-memory storage for active games. */
 const games = new Map<string, Game>();
 
 /**
  * Creates a new Tic-Tac-Toe game.
+ * 
  * @param id - The unique identifier for the new game.
  * @returns The newly created game object.
  */
@@ -58,15 +66,21 @@ export const createGame = (id: string): Game => {
 
 /**
  * Allows a player to join an existing game.
- * A game can have at most two players.
+ * A game must have two players.
+ * 
  * @param gameId - The ID of the game to join.
  * @param playerId - The player's unique identifier.
- * @returns The updated game object or null if the game doesn't exist or is full.
+ * 
+ * @returns The updated game object or undefined if the game doesn't exist or is full.
  */
-export const joinGame = (gameId: string, playerId: string): Game | null => {
+export const joinGame = (gameId: string, playerId: string): Game | undefined => {
     const game = games.get(gameId);
-    if (!game || Object.keys(game.playersId).length >= 2) return null;
 
+    // Check if the game exists or is full
+    if (!game || Object.keys(game.playersId).length >= 2) return undefined;
+
+    // Assign the player to the first available slot
+    // keyof Game["playersId"] is either "first" | "second" or any value of playersId
     const playerRole: keyof Game["playersId"] = game.playersId.first ? "second" : "first";
     game.playersId[playerRole] = playerId;
 
@@ -82,32 +96,40 @@ export const getGameState = (gameId: string): Game | undefined => games.get(game
 
 /**
  * Handles a player's move in the game.
+ * 
  * @param gameId - The ID of the game.
  * @param playerId - The ID of the player making the move.
  * @param index - The board index (0-8) where the move is placed.
+ * 
  * @returns The updated game object or an error message if the move is invalid.
  */
-export const makeMove = (gameId: string, playerId: string, index: number): Game | string => {
+export const makeMove = (gameId: string, playerId: string, index: number): Game | MoveError => {
     const game = games.get(gameId);
-    if (!game) return "Game not found";
-    if (game.winner) return "Game already ended";
-    if (index < 0 || index > 8) return "Invalid move";
-    if (game.board[index] !== undefined) return "Cell already taken";
+
+    // Instead of returning strings, use enum values for error messages
+    if (!game) return MoveError.GameNotFound;
+    if (game.winner) return MoveError.GameAlreadyEnded;
+    if (index < 0 || index > 8) return MoveError.InvalidMove;
+    if (game.board[index] !== undefined) return MoveError.CellAlreadyTaken;
 
     // Determine which player is making the move
     const currentPlayerId = game.currentTurn === "X" ? game.playersId.first : game.playersId.second;
-    if (currentPlayerId !== playerId) return "Not your turn";
+    if (currentPlayerId !== playerId) return MoveError.NotYourTurn;
 
     // Place move
     game.board[index] = game.currentTurn;
 
-    // Check for a winner
+    // The winningCombos array contains all possible ways a player can win in a 3x3 Tic-Tac-Toe board.
+    // Each sub-array represents a set of three indices in the game.board array that form a row, column, or diagonal
     const winningCombos = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8],  // Rows
         [0, 3, 6], [1, 4, 7], [2, 5, 8],  // Columns
         [0, 4, 8], [2, 4, 6],             // Diagonals
     ];
+
+    // Check for a winner
     for (const [a, b, c] of winningCombos) {
+        //  Checks if all three positions contain the same player's symbol.
         if (game.board[a] && game.board[a] === game.board[b] && game.board[a] === game.board[c]) {
             game.winner = game.board[a]; // Declare winner
             return game;
