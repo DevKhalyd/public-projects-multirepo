@@ -12,3 +12,21 @@ To take software architecture seriously, you need to know what good software
 architecture is. To build a system with a design and an architecture that minimize
 effort and maximize productivity, you need to know which attributes of system
 architecture lead to that end.
+
+
+# CHAPTER 2 - A TALE OF TWO VALUES
+
+Every software system provides two different values to the stakeholders:
+behavior and structure. Software developers are responsible for ensuring that
+both those values remain high. Unfortunately, they often focus on one to the
+exclusion of the other. Even more unfortunately, they often focus on the lesser of
+the two values, leaving the software system eventually valueless.
+
+- Behavior: The first value of software is its behavior. Programmers are hired to make
+machines behave in a way that makes or saves money for the stakeholders.
+
+- Architecture: Software was invented to be “soft.” It was intended to be a way to easily change
+the behavior of machines. If we’d wanted the behavior of machines to be hard to
+change, we would have called it hardware.
+
+
