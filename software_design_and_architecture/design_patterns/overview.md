@@ -205,6 +205,14 @@ The Chain of Responsibility is a behavioral design pattern that allows you to pa
 
 - Visitor: Adds new operations to existing object structures without modifying them.
 
+# Cohesion
+
+Cohesion refers to how closely related and focused the responsibilities of a module, class, or function are. A high-cohesion module does one thing well and is easier to maintain and understand. 
+
+# Coupling
+
+Coupling refers to how dependent one module is on another. Low coupling means modules can function independently, making the system more modular and flexible. High coupling means changes in one module can break or require changes in another.
+
 # POSA Patterns
 
 POSA (Pattern-Oriented Software Architecture) is a set of design patterns for developing software systems that can scale and adapt to changing requirements. These patterns were first described in the book “Patterns of Scalable, Reliable Services” by Kevin Hoffman.
