@@ -1,3 +1,10 @@
+# Run Server
+
+```bash
+# Run the app in dev mode
+npm run dev
+```
+
 # Overview
 
 express → Handles REST API

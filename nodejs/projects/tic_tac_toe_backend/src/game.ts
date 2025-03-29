@@ -7,8 +7,8 @@ type Player = "X" | "O";
 /**
  * Enum for handling move errors instead of raw strings.
  */
-enum MoveError {
-    GameNotFound = 1,
+export enum MoveError {
+    GameNotFound,
     GameAlreadyEnded,
     InvalidMove,
     CellAlreadyTaken,
@@ -18,7 +18,8 @@ enum MoveError {
 /**
  * Represents a Tic-Tac-Toe game instance.
  * 
- * Why use an interface instead of a class?  
+ * Why use an interface instead of a class?
+ * 
  * - Interfaces are **lighter** and **purely structural**, meaning they don't generate extra JavaScript code.  
  * - Our `Game` object is just **data**, and all logic is handled externally via functions.  
  * - Using an interface makes it **easier to extend** (e.g., adding a timed game mode).  
@@ -89,6 +90,7 @@ export const joinGame = (gameId: string, playerId: string): Game | undefined => 
 
 /**
  * Retrieves the current state of a game.
+ * 
  * @param gameId - The ID of the game.
  * @returns The game object if found, otherwise undefined.
  */
@@ -141,9 +143,3 @@ export const makeMove = (gameId: string, playerId: string, index: number): Game 
 
     return game;
 };
-
-/**
- * TODO:
- * 1. Continue with the next steps with the socket
- * 2. Finally test the core functionality of the game
- */
