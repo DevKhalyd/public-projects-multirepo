@@ -41,7 +41,7 @@ interface Game {
     currentTurn: Player;
 
     /** Stores the winner when the game ends, otherwise undefined. */
-    winner: Player | undefined;
+    winner: Player | "draw" | undefined;
 }
 
 /** In-memory storage for active games. */
@@ -136,6 +136,12 @@ export const makeMove = (gameId: string, playerId: string, index: number): Game 
             game.winner = game.board[a]; // Declare winner
             return game;
         }
+    }
+
+    // Check for draw: if no empty cells and no winner
+    if (!game.board.includes(undefined)) {
+        game.winner = "draw"; // "draw" is valid now
+        return game;
     }
 
     // Switch turn
