@@ -201,6 +201,87 @@ print(greet(person: "Brian"))
 // Prints "Hello, Brian!"
 ```
 
+# Functions With an Implicit Return
+
+If the entire body of the function is a single expression, the function implicitly returns that expression. For example, both functions below have the same behavior:
+
+```swift
+func greeting(for person: String) -> String {
+    "Hello, " + person + "!"
+}
+print(greeting(for: "Dave"))
+// Prints "Hello, Dave!"
 
 
-Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions#Functions-with-Multiple-Return-Values
+func anotherGreeting(for person: String) -> String {
+    return "Hello, " + person + "!"
+}
+print(anotherGreeting(for: "Dave"))
+// Prints "Hello, Dave!"
+```
+
+# Specifying Argument Labels
+
+You write an argument label before the parameter name, separated by a space:
+
+```swift
+func someFunction(argumentLabel parameterName: Int) {
+    // In the function body, parameterName refers to the argument value
+    // for that parameter.
+}
+```
+
+Here’s a variation of the greet(person:) function that takes a person’s name and hometown and returns a greeting:
+
+```swift
+func greet(person: String, from hometown: String) -> String {
+    return "Hello \(person)!  Glad you could visit from \(hometown)."
+}
+print(greet(person: "Bill", from: "Cupertino"))
+// Prints "Hello Bill!  Glad you could visit from Cupertino."
+```
+
+The use of argument labels can allow a function to be called in an expressive, sentence-like manner, while still providing a function body that’s readable and clear in intent.
+
+# Omitting Arguments Labels
+
+If you don’t want an argument label for a parameter, write an underscore (_) instead of an explicit argument label for that parameter.
+
+```swift
+func someFunction(_ firstParameterName: Int, secondParameterName: Int) {
+    // In the function body, firstParameterName and secondParameterName
+    // refer to the argument values for the first and second parameters.
+}
+someFunction(1, secondParameterName: 2)
+```
+
+If a parameter has an argument label, the argument must be labeled when you call the function.
+
+# Variadic Parameters
+
+A variadic parameter accepts zero or more values of a specified type. You use a variadic parameter to specify that the parameter can be passed a varying number of input values when the function is called. Write variadic parameters by inserting three period characters (...) after the parameter’s type name.
+
+The values passed to a variadic parameter are made available within the function’s body as an array of the appropriate type. For example, a variadic parameter with a name of numbers and a type of Double... is made available within the function’s body as a constant array called numbers of type [Double].
+
+The example below calculates the arithmetic mean (also known as the average) for a list of numbers of any length:
+
+```swift
+func arithmeticMean(_ numbers: Double...) -> Double {
+    var total: Double = 0
+    for number in numbers {
+        total += number
+    }
+    return total / Double(numbers.count)
+}
+arithmeticMean(1, 2, 3, 4, 5)
+// returns 3.0, which is the arithmetic mean of these five numbers
+arithmeticMean(3, 8.25, 18.75)
+// returns 10.0, which is the arithmetic mean of these three numbers
+```
+
+A function can have multiple variadic parameters. The first parameter that comes after a variadic parameter must have an argument label. The argument label makes it unambiguous which arguments are passed to the variadic parameter and which arguments are passed to the parameters that come after the variadic parameter.
+
+
+Continue:
+
+https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#In-Out-Parameters
