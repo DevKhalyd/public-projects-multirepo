@@ -311,6 +311,6 @@ The example above shows that the original values of someInt and anotherInt are m
 
 In-out parameters aren’t the same as returning a value from a function. The swapTwoInts example above doesn’t define a return type or return a value, but it still modifies the values of someInt and anotherInt. In-out parameters are an alternative way for a function to have an effect outside of the scope of its function body.
 
-Continue:
+Ref:
 
 https://docs.swift.org/swift-book/documentation/the-swift-programming-language/functions/#Function-Types
