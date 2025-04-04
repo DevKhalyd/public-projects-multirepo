@@ -22,4 +22,29 @@ Swift’s closure expressions have a clean, clear style, with optimizations that
 
 - Trailing closure syntax
 
-Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/#Closure-Expressions
+# Closure Expression Syntax
+
+Closure expression syntax has the following general form:
+
+```swift
+// Syntax
+{ (parameters) -> returnType in
+    statements
+}
+
+// Example
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 > s2
+})
+```
+
+# Implicit Returns from Single-Expression Closures
+
+Single-expression closures can implicitly return the result of their single expression by omitting the return keyword from their declaration, as in this version of the previous example:
+
+```swift
+reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
+```
+
+
+Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/#Shorthand-Argument-Names
