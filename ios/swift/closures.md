@@ -71,5 +71,5 @@ reversedNames = names.sorted(by: >)
 
 
 
-Continue on: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/#Capturing-Values
+Continue on: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/closures/#Escaping-Closures
 
