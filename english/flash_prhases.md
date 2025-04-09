@@ -4,7 +4,7 @@
 
 # Words for Sharing Ideas
 
-Propose – “I propose we take a phased approach.”
+Propose – “I propose we take a phased approach.” (phased approach = step by step or set of instructions to follow to achieve a goal)
 
 Recommend – “I recommend we revise the deadline.”
 
@@ -24,7 +24,7 @@ Coordinate – “We should coordinate with the other team.”
 
 Support – “How can I support your efforts on this?”
 
-Brainstorm – “Shall we brainstorm some ideas?”
+Brainstorm – “Shall we brainstorm some ideas?” (Like making some suggestion)
 
 # Words for Problem-Solving
 
@@ -42,7 +42,7 @@ Analyze – “Let’s analyze the feedback.”
 
 Implement – “We’ll implement the new feature next week.”
 
-Streamline – “How can we streamline the process?”
+Streamline – “How can we streamline the process?” (TODO: Work on this)
 
 Prioritize – “We need to prioritize based on urgency.”
 
