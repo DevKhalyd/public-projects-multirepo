@@ -141,6 +141,10 @@ fun hasPrefix(x: Any) = when(x) {
 }
 ```
 
-## Guard conditions in when expressions
+## Guard conditions in when expressions (Experimental)
 
 Ref: https://kotlinlang.org/docs/control-flow.html#guard-conditions-in-when-expressions
+
+## Break and continue labels
+
+Ref: https://kotlinlang.org/docs/returns.html#break-and-continue-labels
