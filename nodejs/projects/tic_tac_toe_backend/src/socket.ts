@@ -1,12 +1,3 @@
-/**
- * WebSocket setup for Tic Tac Toe.
- * 
- * Improvements:
- * 1. Document each function.
- * 2. Extract each switch case into a separate function.
- * 3. Use enums for message types for better readability.
- */
-
 import { Server as HTTPServer } from "http";
 import { WebSocketServer, WebSocket } from "ws";
 import { v4 as uuidv4 } from "uuid";
@@ -20,13 +11,17 @@ import {
 
 /**
  * Enum representing WebSocket message types.
+ * 
+ * These values could be used to identify the type of message being sent or received.
  */
 enum MessageType {
-    GameCreated,
-    Joined,
-    Update,
-    Error,
+    Create,
+    Join,
+    // Make a move if the game is in progress
+    Move,
+    // Get or Send the current game state
     State,
+    Error
 }
 
 /**
@@ -38,7 +33,7 @@ function createGameHandler(ws: WebSocket) {
     const game = createGame(gameId);
     game.playersId.first = playerId;
 
-    ws.send(JSON.stringify({ type: MessageType.GameCreated, payload: { gameId, playerId } }));
+    ws.send(JSON.stringify({ type: MessageType.Create, payload: { gameId, playerId } }));
 }
 
 /**
@@ -47,9 +42,9 @@ function createGameHandler(ws: WebSocket) {
  */
 function joinGameHandler(ws: WebSocket, gameId: string) {
     const playerId = uuidv4();
-    const joined = joinGame(gameId, playerId);
-    if (joined) {
-        ws.send(JSON.stringify({ type: MessageType.Joined, payload: joined }));
+    const gameState = joinGame(gameId, playerId);
+    if (gameState) {
+        ws.send(JSON.stringify({ type: MessageType.Join, payload: gameState }));
     } else {
         ws.send(JSON.stringify({ type: MessageType.Error, payload: "Unable to join game" }));
     }
@@ -65,7 +60,7 @@ function makeMoveHandler(ws: WebSocket, wss: WebSocketServer, payload: any) {
     } else {
         wss.clients.forEach((client) => {
             if (client.readyState === ws.OPEN) {
-                client.send(JSON.stringify({ type: MessageType.Update, payload: result }));
+                client.send(JSON.stringify({ type: MessageType.Move, payload: result }));
             }
         });
     }
@@ -98,16 +93,16 @@ export const setupWebSocket = (server: HTTPServer) => {
                 const { type, payload } = data;
 
                 switch (type) {
-                    case "create":
+                    case MessageType.Create:
                         createGameHandler(ws);
                         break;
-                    case "join":
+                    case MessageType.Join:
                         joinGameHandler(ws, payload.gameId);
                         break;
-                    case "move":
+                    case MessageType.Move:
                         makeMoveHandler(ws, wss, payload);
                         break;
-                    case "state":
+                    case MessageType.State:
                         getGameStateHandler(ws, payload);
                         break;
                     default:
