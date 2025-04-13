@@ -26,5 +26,8 @@ Scenario: You're asked to finish something quickly, but you need more time. Prac
 # 8. Calling in Sick
 Scenario: You wake up feeling sick and need to notify your boss. Practice: “Hi [Boss’s Name], I’m not feeling well today and won’t be able to come in…”
 
+# TODO
+
+- Add to Maya negotiations skills
 
 ChatID: https://chatgpt.com/c/67f73af0-89e4-8013-b6c9-559e2aa5f089

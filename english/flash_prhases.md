@@ -44,15 +44,13 @@ Analyze – “Let’s analyze the feedback.”
 
 Implement – “We’ll implement the new feature next week.”
 
-Streamline – “How can we streamline the process?” (TODO: Work on this)
+Streamline – “How can we streamline the process?” - Asking for improve or do better something
 
 Prioritize – “We need to prioritize based on urgency.”
 
 Initiate – “I’ll initiate the onboarding process.”
 
 Execute – “Let’s execute the plan as discussed.”
-
-// TODO: Continiue with the next works
 
 # Demos
 
