@@ -8,3 +8,17 @@ A list of most used patterns by me.
 - Add the facade pattern
 
 - Add the state pattern
+
+- Singleton Pattern
+
+- Factory Pattern
+
+- Observable Pattern
+
+- Composite Pattern
+
+- Facade Pattern
+
+- Strategy pattern
+
+- Strangler Pattern (Architectural Patterns (Review it))
