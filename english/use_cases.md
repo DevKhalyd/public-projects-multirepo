@@ -26,6 +26,35 @@ Scenario: You're asked to finish something quickly, but you need more time. Prac
 # 8. Calling in Sick
 Scenario: You wake up feeling sick and need to notify your boss. Practice: “Hi [Boss’s Name], I’m not feeling well today and won’t be able to come in…”
 
+
+# Negotations
+
+1. Negotiating a Deadline
+"I’d love to deliver this by then, but to maintain quality, I’d need until [X]. Would that work for you?"
+
+"Is there any flexibility on the timeline?"
+
+2. Asking for a Raise or Promotion
+"Based on my recent contributions — like [X project or impact] — I believe it's a good time to discuss my compensation."
+
+"I’d love to hear your thoughts on my growth path in the company."
+
+3. Negotiating Scope (Too Many Tasks)
+"To do this properly, I’ll need to deprioritize [X] or get support. Which do you think is best?"
+
+"Let’s align on priorities so I can focus where it’s most valuable."
+
+4. Pushing Back Respectfully
+"I see where you're coming from. Here’s my concern…"
+
+"Can I offer an alternative that might work better for both of us?"
+
+5. Finding Middle Ground
+"Let’s find a solution that works for both of us."
+
+"I’m open to compromise. What do you suggest?"
+
+
 # TODO
 
 - Add to Maya negotiations skills
