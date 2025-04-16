@@ -147,4 +147,24 @@ Ref: https://kotlinlang.org/docs/control-flow.html#guard-conditions-in-when-expr
 
 ## Break and continue labels
 
-Ref: https://kotlinlang.org/docs/returns.html#break-and-continue-labels
+Any expression in Kotlin may be marked with a label. Labels have the form of an identifier followed by the @ sign, such as abc@ or fooBar@. To label an expression, just add a label in front of it.
+
+```kt
+loop@ for (i in 1..100) {
+    // ...
+}
+```
+
+```kt
+loop@ for (i in 1..100) {
+    for (j in 1..100) {
+        if (...) break@loop
+    }
+}
+```
+
+A break qualified with a label jumps to the execution point right after the loop marked with that label. A continue proceeds to the next iteration of that loop.
+
+## Return to labels
+
+Continue: https://kotlinlang.org/docs/returns.html#return-to-labels

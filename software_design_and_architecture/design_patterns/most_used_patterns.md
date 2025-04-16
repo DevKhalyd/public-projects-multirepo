@@ -2,7 +2,6 @@
 
 A list of most used patterns by me.
 
-
 - Add the adapter pattern
 
 - Add the facade pattern
