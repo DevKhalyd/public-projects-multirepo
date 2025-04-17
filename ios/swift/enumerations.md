@@ -10,4 +10,21 @@ Alternatively, enumeration cases can specify associated values of any type to be
 
 Enumerations in Swift are first-class types in their own right. They adopt many features traditionally supported only by classes, such as computed properties to provide additional information about the enumeration’s current value, and instance methods to provide functionality related to the values the enumeration represents. Enumerations can also define initializers to provide an initial case value; can be extended to expand their functionality beyond their original implementation; and can conform to protocols to provide standard functionality.
 
-Continue: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations#Enumeration-Syntax
+# Enumeration Syntax
+
+```swift
+enum CompassPoint {
+    case north
+    case south
+    case east
+    case west
+}
+
+// Multiple values
+
+enum Planet {
+    case mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+```
+
+Ref: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/enumerations#Enumeration-Syntax
