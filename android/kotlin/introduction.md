@@ -167,4 +167,32 @@ A break qualified with a label jumps to the execution point right after the loop
 
 ## Return to labels
 
-Continue: https://kotlinlang.org/docs/returns.html#return-to-labels
+In Kotlin, functions can be nested using function literals, local functions, and object expressions. A qualified return allows you to return from an outer function.
+
+The most important use case is returning from a lambda expression. To return from a lambda expression, label it and qualify the return:
+
+```kt
+fun foo() {
+    listOf(1, 2, 3, 4, 5).forEach lit@{
+        if (it == 3) return@lit // local return to the caller of the lambda - the forEach loop
+        print(it)
+    }
+    print(" done with explicit label")
+}
+
+// More examples
+
+fun foo() {
+    run loop@{
+        listOf(1, 2, 3, 4, 5).forEach {
+            if (it == 3) return@loop // non-local return from the lambda passed to run
+            print(it)
+        }
+    }
+    print(" done with nested loop")
+}
+
+```
+
+
+Ref: https://kotlinlang.org/docs/returns.html#return-to-labels
