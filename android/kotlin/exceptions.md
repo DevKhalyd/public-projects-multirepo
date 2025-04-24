@@ -8,8 +8,6 @@ Working with exceptions consists of two primary actions:
 
 **Catching exceptions:** handle the unexpected exception manually by resolving the issue or notifying the developer or application user.
 
-Ref: https://kotlinlang.org/docs/exceptions.html
-
 # Throw exceptions with precondition functions﻿
 
 Kotlin offers additional ways to automatically throw exceptions using precondition functions. Precondition functions include:
@@ -17,3 +15,5 @@ Kotlin offers additional ways to automatically throw exceptions using preconditi
 - require() -> Checks user input validity
 - check() -> Checks object or variable state validity
 - error() -> Indicates an illegal state or condition
+
+Ref: https://kotlinlang.org/docs/exceptions.html
