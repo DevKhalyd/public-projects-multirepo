@@ -47,4 +47,29 @@ class SomeClass {
 }
 ```
 
+# Classes Are Reference Types
+
+Unlike value types, reference types are not copied when they’re assigned to a variable or constant, or when they’re passed to a function. Rather than a copy, a reference to the same existing instance is used.
+
+Here’s an example, using the VideoMode class defined above:
+
+```swift
+let tenEighty = VideoMode()
+tenEighty.resolution = hd
+tenEighty.interlaced = true
+tenEighty.name = "1080i"
+tenEighty.frameRate = 25.0
+```
+
+This example declares a new constant called tenEighty and sets it to refer to a new instance of the VideoMode class. The video mode is assigned a copy of the HD resolution of 1920 by 1080 from before. It’s set to be interlaced, its name is set to "1080i", and its frame rate is set to 25.0 frames per second.
+
+
+Next, tenEighty is assigned to a new constant, called alsoTenEighty, and the frame rate of alsoTenEighty is modified:
+
+```swift
+let alsoTenEighty = tenEighty
+alsoTenEighty.frameRate = 30.0
+
+```
+
 Ref: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/classesandstructures/#Definition-Syntax
