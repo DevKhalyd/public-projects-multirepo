@@ -6,7 +6,6 @@ Classes in Kotlin are declared using the keyword class:
 class Person { /*...*/ }
 ```
 
-https://kotlinlang.org/docs/classes.html
 
 # Constructors
 
@@ -16,3 +15,4 @@ A class in Kotlin has a primary constructor and possibly one or more secondary c
 class Person constructor(firstName: String) { /*...*/ }
 ```
 
+https://kotlinlang.org/docs/classes.html
