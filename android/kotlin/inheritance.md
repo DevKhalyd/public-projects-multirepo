@@ -31,3 +31,35 @@ class MyView : View {
     constructor(ctx: Context, attrs: AttributeSet) : super(ctx, attrs)
 }
 ```
+
+# Overriding methods
+
+Kotlin requires explicit modifiers for overridable members and overrides:
+
+```kt
+open class Shape {
+    open fun draw() { /*...*/ }
+    fun fill() { /*...*/ }
+}
+
+class Circle() : Shape() {
+    override fun draw() { /*...*/ }
+}
+```
+
+The override modifier is required for Circle.draw(). If it's missing, the compiler will complain. If there is no open modifier on a function, like Shape.fill(), declaring a method with the same signature in a subclass is not allowed, either with override or without it. The open modifier has no effect when added to members of a final class – a class without an open modifier.
+
+A member marked override is itself open, so it may be overridden in subclasses. If you want to prohibit re-overriding, use final:
+
+
+```kt
+open class Rectangle() : Shape() {
+    final override fun draw() { /*...*/ }
+}
+```
+
+# Overriding properties
+
+The overriding mechanism works on properties in the same way that it does on methods. Properties declared on a superclass that are then redeclared on a derived class must be prefaced with override, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a get method:
+
+Ref: https://kotlinlang.org/docs/inheritance.html#overriding-properties

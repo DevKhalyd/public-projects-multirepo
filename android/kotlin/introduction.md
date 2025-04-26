@@ -191,7 +191,6 @@ fun foo() {
     }
     print(" done with nested loop")
 }
-
 ```
 
 Ref: https://kotlinlang.org/docs/returns.html#return-to-labels
