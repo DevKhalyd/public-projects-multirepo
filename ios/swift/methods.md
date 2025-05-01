@@ -16,7 +16,7 @@ Structures and enumerations are value types. By default, the properties of a val
 
 However, if you need to modify the properties of your structure or enumeration within a particular method, you can opt in to mutating behavior for that method. The method can then mutate (that is, change) its properties from within the method, and any changes that it makes are written back to the original structure when the method ends. The method can also assign a completely new instance to its implicit self property, and this new instance will replace the existing one when the method ends.
 
+# Type Methods
 
-Continue with the example
+https://docs.swift.org/swift-book/documentation/the-swift-programming-language/methods/#Type-Methods
 
-Ref: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/methods#Modifying-Value-Types-from-Within-Instance-Methods

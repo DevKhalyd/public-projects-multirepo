@@ -1,0 +1,1 @@
+Ref: https://kotlinlang.org/docs/inheritance.html
