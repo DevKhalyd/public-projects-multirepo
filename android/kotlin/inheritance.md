@@ -62,4 +62,27 @@ open class Rectangle() : Shape() {
 
 The overriding mechanism works on properties in the same way that it does on methods. Properties declared on a superclass that are then redeclared on a derived class must be prefaced with override, and they must have a compatible type. Each declared property can be overridden by a property with an initializer or by a property with a get method:
 
+# Overriding Rules
+
+In Kotlin, implementation inheritance is regulated by the following rule: if a class inherits multiple implementations of the same member from its immediate superclasses, it must override this member and provide its own implementation (perhaps, using one of the inherited ones).
+
+
+```kt
+open class Rectangle {
+    open fun draw() { /* ... */ }
+}
+
+interface Polygon {
+    fun draw() { /* ... */ } // interface members are 'open' by default
+}
+
+class Square() : Rectangle(), Polygon {
+    // The compiler requires draw() to be overridden:
+    override fun draw() {
+        super<Rectangle>.draw() // call to Rectangle.draw()
+        super<Polygon>.draw() // call to Polygon.draw()
+    }
+}
+```
+
 Ref: https://kotlinlang.org/docs/inheritance.html#overriding-properties
