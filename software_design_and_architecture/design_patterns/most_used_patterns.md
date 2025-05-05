@@ -58,7 +58,11 @@ Old console cable ➔ HDMI adapter ➔ Modern TV
 
 Continue with:
 
-- Facade pattern
+## Facade pattern
+
+- Description
+- Example
+- Summary
 
 - State pattern
 

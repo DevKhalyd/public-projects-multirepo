@@ -41,9 +41,3 @@ class Customer(name: String) {
 }
 
 ```
-
-## Secondary Constructors
-
-
-
-https://kotlinlang.org/docs/classes.html
