@@ -56,7 +56,7 @@ WebSockets Reference: https://learning.postman.com/docs/sending-requests/websock
 "playerIdOne-X": "b06ffb0b-a556-4123-80a9-368d338431b7"
 "playerIdTwo-O": "2c1fcf1a-9471-457a-8bd7-fa60c58aca92"
 
-The first turn is always for X
+The first turn is always for X, in other words, who starts the game
 
 **Final Response**
 
@@ -155,8 +155,6 @@ Use this format for each move:
 }
 ```
 
----
-
 ## 🧪 4. Final Response (after move 9)
 
 ```json
@@ -168,8 +166,6 @@ Use this format for each move:
   }
 }
 ```
-
----
 
 ## 🔄 5. Check Game State
 
@@ -184,4 +180,5 @@ Use this format for each move:
 
 # Next Steps
 
-- Support more game rooms
+
+- Support more game rooms (broadcast just to the clients connected)
