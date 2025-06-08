@@ -526,14 +526,101 @@ Output
 | **Composite** | A class that contains components (leaf or composite) | `Folder`     |
 
 
-- Strategy pattern
+## Strategy pattern
 
-- Strangler Pattern (Architectural Patterns (Review it))
+Define a family of algorithms, put each one in a separate class, and make them interchangeable at runtime.
+
+Instead of hardcoding behavior, you inject it — like plug-and-play logic.
+
+### When to use
+
+- You have multiple ways to do something (sorting, payment, compression, AI decisions…).
+- You want to swap logic dynamically without altering the main object’s code.
+- You want to avoid if/else chains or switches for behavior.
+
+Example:
+
+Imagine a file compressor that supports:
+
+- Zip compression
+- Rar compression
+- Tar compression
+
+Each is a different strategy for the same goal: compressing a file.
+
+```dart
+// Interface
+abstract class PaymentStrategy {
+  void pay(double amount);
+}
+
+// Implementations
+
+class CreditCardPayment implements PaymentStrategy {
+  final String cardNumber;
+
+  CreditCardPayment(this.cardNumber);
+
+  @override
+  void pay(double amount) {
+    print('Paid \$${amount.toStringAsFixed(2)} with Credit Card $cardNumber');
+  }
+}
+
+class PayPalPayment implements PaymentStrategy {
+  final String email;
+
+  PayPalPayment(this.email);
+
+  @override
+  void pay(double amount) {
+    print('Paid \$${amount.toStringAsFixed(2)} via PayPal ($email)');
+  }
+}
+
+// Usecase
+
+class ShoppingCart {
+  PaymentStrategy? _paymentStrategy;
+
+  void setPaymentStrategy(PaymentStrategy strategy) {
+    _paymentStrategy = strategy;
+  }
+
+  void checkout(double total) {
+    if (_paymentStrategy == null) {
+      print('No payment method selected.');
+      return;
+    }
+    _paymentStrategy!.pay(total);
+  }
+}
+
+// Usage
+
+void main() {
+  final cart = ShoppingCart();
+
+  cart.setPaymentStrategy(CreditCardPayment('1234-5678-9012-3456'));
+  cart.checkout(59.99);
+
+  cart.setPaymentStrategy(PayPalPayment('user@example.com'));
+  cart.checkout(42.50);
+}
+```
+
+| Role            | Responsibility                                   | Example                 |
+|-----------------|--------------------------------------------------|-------------------------|
+| **Strategy**     | Interface for the algorithm                     | `PaymentStrategy`       |
+| **ConcreteStrategy** | Implements the algorithm                   | `CreditCardPayment`, `PayPalPayment` |
+| **Context**      | Uses a strategy to perform its operation        | `ShoppingCart`          |
+
 
 - Service Locator
 
 - Command Pattern
 
+- Strangler Pattern (Architectural Patterns (Review it))
 Ref: https://www.youtube.com/watch?v=QelshnY1DNk&list=PLbzlGTWnTHu0R19HJ3cbwuy7MBBDCNo59
 
 
