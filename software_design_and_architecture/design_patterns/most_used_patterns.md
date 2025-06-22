@@ -615,6 +615,89 @@ void main() {
 | **ConcreteStrategy** | Implements the algorithm                   | `CreditCardPayment`, `PayPalPayment` |
 | **Context**      | Uses a strategy to perform its operation        | `ShoppingCart`          |
 
+## Service Locator
+
+The Service Locator Pattern provides a central registry (or "locator") that knows how to find and provide services or dependencies upon request.
+
+It’s like a global phone book for your app's services.
+Instead of each class constructing or being injected with dependencies directly, it asks the Service Locator for what it needs.
+
+
+### Real-World Analogy
+
+Imagine you need a plumber. You don’t build one. You don’t inject one at birth.
+You look it up in the Yellow Pages (Service Locator), call, and done.
+
+### Example
+
+1. Define your services
+
+```dart
+class Logger {
+  void log(String message) {
+    print('[LOG] $message');
+  }
+}
+
+class ApiService {
+  void fetchData() {
+    print('Fetching data from API...');
+  }
+}
+```
+
+2. Create a simple Service Locator
+
+```dart
+class ServiceLocator {
+  static final Map<Type, dynamic> _services = {};
+
+  static void register<T>(T instance) {
+    _services[T] = instance;
+  }
+
+  static T get<T>() {
+    final service = _services[T];
+    if (service == null) throw Exception('Service $T not found!');
+    return service;
+  }
+
+  static void reset() {
+    _services.clear();
+  }
+}
+```
+
+3. Register and use services
+
+```dart
+void main() {
+  ServiceLocator.register<Logger>(Logger());
+  ServiceLocator.register<ApiService>(ApiService());
+
+  final logger = ServiceLocator.get<Logger>();
+  final api = ServiceLocator.get<ApiService>();
+
+  logger.log('App started');
+  api.fetchData();
+}
+```
+
+✅ Pros
+Centralized access to services
+
+Easy to use in small apps, CLI tools, or when constructor injection feels too heavy
+
+Can be combined with Singleton pattern
+
+| Issue                               | Why it's a problem                           |
+| ----------------------------------- | -------------------------------------------- |
+| ❌ **Hidden dependencies**           | Objects don’t clearly declare what they need |
+| ❌ **Global state**                  | Harder to test or swap implementations       |
+| ❌ **Tight coupling**                | Makes refactoring harder                     |
+| ❌ **Order of registration matters** | Can lead to runtime errors                   |
+
+
 
 - Service Locator
 
