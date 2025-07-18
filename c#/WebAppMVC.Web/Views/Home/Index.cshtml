@@ -1,0 +1,153 @@
+﻿@model List<WebAppMVC.Web.Models.TodoItem>
+@{
+    ViewData["Title"] = "Todo List";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="text-center mb-4">
+                <h1 class="display-4 text-primary">📝 My Todo List</h1>
+                <p class="lead text-muted">Stay organized and get things done!</p>
+            </div>
+
+            <!-- Add Todo Form -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Add New Todo</h5>
+                    <form asp-action="AddTodo" method="post">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter todo title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Description</label>
+                            <textarea class="form-control" id="description" name="description" rows="2" placeholder="Enter description (optional)"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Add Todo
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Todo Statistics -->
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="card bg-primary text-white">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Total</h5>
+                            <h2>@Model.Count</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-success text-white">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Completed</h5>
+                            <h2>@Model.Count(t => t.IsCompleted)</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pending</h5>
+                            <h2>@Model.Count(t => !t.IsCompleted)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Todo List -->
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h5 class="mb-0">Your Todos</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.Any())
+                    {
+                        <div class="list-group list-group-flush">
+                            @foreach (var todo in Model.OrderBy(t => t.IsCompleted).ThenByDescending(t => t.CreatedAt))
+                            {
+                                <div class="list-group-item d-flex justify-content-between align-items-start @(todo.IsCompleted ? "bg-light" : "")">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex align-items-center">
+                                            <form asp-action="ToggleTodo" method="post" class="d-inline me-3">
+                                                <input type="hidden" name="id" value="@todo.Id" />
+                                                <button type="submit" class="btn btn-outline-success btn-sm">
+                                                    @if (todo.IsCompleted)
+                                                    {
+                                                        <i class="fas fa-check-circle"></i>
+                                                    }
+                                                    else
+                                                    {
+                                                        <i class="far fa-circle"></i>
+                                                    }
+                                                </button>
+                                            </form>
+                                            <div class="@(todo.IsCompleted ? "text-decoration-line-through text-muted" : "")">
+                                                <h6 class="mb-1">@todo.Title</h6>
+                                                @if (!string.IsNullOrEmpty(todo.Description))
+                                                {
+                                                    <p class="mb-1 small">@todo.Description</p>
+                                                }
+                                                <small class="text-muted">Created: @todo.CreatedAt.ToString("MMM dd, yyyy HH:mm")</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <form asp-action="DeleteTodo" method="post" class="d-inline">
+                                        <input type="hidden" name="id" value="@todo.Id" />
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Are you sure you want to delete this todo?')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="text-center py-5">
+                            <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">No todos yet!</h5>
+                            <p class="text-muted">Add your first todo above to get started.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FontAwesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+    .list-group-item {
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+    }
+    
+    .list-group-item:first-child {
+        border-top: none;
+    }
+    
+    .list-group-item:last-child {
+        border-bottom: none;
+    }
+    
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+    
+    .btn {
+        border-radius: 8px;
+    }
+    
+    .form-control {
+        border-radius: 8px;
+    }
+</style>
