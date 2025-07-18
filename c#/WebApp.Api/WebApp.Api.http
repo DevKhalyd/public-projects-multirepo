@@ -1,0 +1,26 @@
+@WebApp.Api_HostAddress = http://localhost:5247
+
+GET {{WebApp.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+# Health Check Endpoints
+
+# Simple health check
+GET {{WebApp.Api_HostAddress}}/health
+Accept: application/json
+
+###
+
+# Detailed health check with JSON response
+GET {{WebApp.Api_HostAddress}}/healthcheck
+Accept: application/json
+
+###
+
+# Most detailed health check with system info
+GET {{WebApp.Api_HostAddress}}/healthcheck/detailed
+Accept: application/json
+
+###
