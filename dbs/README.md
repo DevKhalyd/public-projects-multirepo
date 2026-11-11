@@ -1,3 +1,0 @@
-# Overview
-
-Learnings on databases
